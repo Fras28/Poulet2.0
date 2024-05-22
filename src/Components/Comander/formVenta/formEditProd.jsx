@@ -1,43 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./formVenta.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { asyncEditProd } from "../../redux/slice";
 import Spinner from "../../assets/Spinner/Spinner";
 
-
 const EditProduct = ({ product, id }) => {
   const dispatch = useDispatch();
-  const { categorias, subCategorias } = useSelector((state) => state.alldata);
 
-  const [formData, setFormData] = useState({
+  // Estado inicial del formulario
+  const initialFormData = {
     data: {
-      name: product?.name,
-      price: product?.price || null,
-      price2: product?.price2 || null,
-      price3: product?.price3 || null,
-      txtPrecio1: product.txtPrecio1,
-      txtPrecio2: product.txtPrecio2,
-      txtPrecio3: product.txtPrecio3,
-      detail: product?.detail,
+      name: "",
+      price: null,
+      price2: null,
+      price3: null,
+      txtPrecio1: "",
+      txtPrecio2: "",
+      txtPrecio3: "",
+      detail: "",
     },
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleInputChange = async (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => {
-      const newFormData = {
-        ...prevFormData,
-        data: {
-          ...prevFormData.data,
-          [name]: value === "0" ? null : value,
-        },
-      };
-      return newFormData;
-    });
   };
 
+  // Estado del formulario
+  const [formData, setFormData] = useState(initialFormData);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Efecto para actualizar el estado del formulario cuando cambia el producto
+  useEffect(() => {
+    if (product) {
+      setFormData({
+        data: {
+          name: product?.name || "",
+          price: product?.price || null,
+          price2: product?.price2 || null,
+          price3: product?.price3 || null,
+          txtPrecio1: product?.txtPrecio1 || "",
+          txtPrecio2: product?.txtPrecio2 || "",
+          txtPrecio3: product?.txtPrecio3 || "",
+          detail: product?.detail || "",
+        },
+      });
+    } else {
+      // Reiniciar el estado del formulario si no hay ningún producto
+      setFormData(initialFormData);
+    }
+  }, [product]);
+
+  // Manejador para cambios en el formulario
+  const handleInputChange = async (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      data: {
+        ...prevFormData.data,
+        [name]: value === "0" ? null : value,
+      },
+    }));
+  };
+
+  // Manejador para envío del formulario
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -57,7 +77,6 @@ const EditProduct = ({ product, id }) => {
       setIsLoading(false);
     });
   };
-
   return (
     <form onSubmit={handleSubmit} className="Formix2">
       <h2>Editar Producto</h2>
