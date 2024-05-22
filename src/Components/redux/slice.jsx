@@ -445,6 +445,8 @@ export const asyncEditProd = (data, id) => {
       if (typeof asyncAllProducts === 'function') {
         dispatch(asyncAllProducts());
       }
+      toast.success("Producto editado correctamente!");
+
     } catch (error) {
       console.error("Error fetching data EditProd Slice:", error);
     }
