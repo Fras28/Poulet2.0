@@ -13,7 +13,7 @@
   gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-image: url(../assets/bgNav.png);
+  background-image: url(../assets/BackNav.jpeg);
 }
   
 .containerL {
@@ -59,7 +59,7 @@
   top: 100px;
   width: 100%;
   z-index: 9999;
-  background-image: url("../assets/bgNav.png");
+  background-image: url("../assets/BackNav.jpeg");
 }
 ::-webkit-scrollbar {
   display: none;
@@ -95,7 +95,7 @@
 @media (max-width: 600px) {
   .sectioner {
     justify-content: flex-start;
-    top: 60px;
+    top: 65px;
   }
   .leftInfo {
     padding-left: 0;
@@ -105,6 +105,6 @@
     margin: 0;
   }
   .containerL {
-  margin-top: 60px; 
+  margin-top: 65px; 
 }
 }

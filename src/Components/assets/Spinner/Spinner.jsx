@@ -10,7 +10,7 @@ const {comercio} = useSelector(state => state.alldata)
   return (
     <div className="spinner-overlay">
       <div className="spinner-container" style={{ width, height }}>
-        <img src={Logo} alt="spinner" className="spinner-image" />
+        <img  src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="spinner" className="spinner-image" />
       </div>
     </div>
   );

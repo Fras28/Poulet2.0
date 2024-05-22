@@ -47,7 +47,7 @@ const { comercio } = useSelector(state => state.alldata)
       >
         <DialogTitle className="infoNavi">
           <div>
-         <img src={Logo} alt="logo Coqui Cakes" width="100px" />
+         <img  src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="100px" />
           </div>
           <div style={{marginLeft:"30%"}}>
           <button className="exit" onClick={handleClose}>

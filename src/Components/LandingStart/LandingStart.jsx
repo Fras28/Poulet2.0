@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import AlertDialogSlide from "../BtnNavidad/BtnNavidad";
 import "./LandingStart.css";
 import { useDispatch, useSelector } from "react-redux";
-import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png"
+import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png";
 import Carousel from "../assets/Carousel/Carousel";
-import Morton from "../assets/PlaceHolder.jpg"
+import Morton from "../assets/PlaceHolder.jpg";
 const API = process.env.REACT_APP_API_STRAPI;
 export const Inicio = (url) => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const Inicio = (url) => {
     console.log(url.location.pathname);
   }
 
-  const Logos = [Morton,Morton,Morton,Morton,Morton,Morton,Morton]
+  const Logos = [Morton, Morton, Morton, Morton, Morton, Morton, Morton];
 
   return (
     <div
@@ -45,7 +45,7 @@ export const Inicio = (url) => {
       }`}
     >
       <div className="landingStart">
-        <div >
+        <div>
           {" "}
           <p
             className="titleSectionStart"
@@ -53,17 +53,23 @@ export const Inicio = (url) => {
               justifyContent: "center",
               outline: "solid white 2px",
               border: "none",
-              backgroundColor:`${comercio?.attributes?.rgb}`,
+              backgroundColor: `${comercio?.attributes?.rgb}`,
             }}
           >
-            {"Contamos con opción de productos Sin T.A.C.C. En caso de que lo necesites, por favor indicarlo al momento de ordenar."}
-          </p>{" "}
+            {comercio?.attributes?.msjInicio ||
+              "Marisquería • jueves viernes y sábado"}
+          </p>
         </div>
         <div className="BottomLanding">
           <img
-            src={Logo}
+            src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
             alt=""
-            style={{ maxWidth: "70%", margin: "auto", paddingTop:"2rem" }}
+            style={{
+              maxWidth: "80%",
+              margin: "auto",
+              paddingTop: "2rem",
+              height: "150px",
+            }}
           />
           {comercio?.attributes?.presentacion != null ? (
             <div className="contAlerStart">
@@ -73,17 +79,21 @@ export const Inicio = (url) => {
 
           <div className="btnEnter" onClick={handleButtonClick}>
             {/* <ButtonEnter titulo="Ver Catalogo" /> */}
-            <button className="Btn2" style={{fontSize:"20px"}} >Ver Carta</button>
+            <button className="Btn2" style={{ fontSize: "20px" }}>
+              Ver Carta
+            </button>
           </div>
 
-            <Carousel logos={Logos} maxWidth="100%"/>
+          <Carousel logos={Logos} maxWidth="100%" />
 
           <div className="btnEnter2">
-          <a
-              className="Btn2"
-              href={comercio?.attributes?.gps}
-              target="_blank"
-            >📍Av.Colón 379</a>
+          <iframe
+          className="IFrame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.118398361054!2d-62.26270920000004!3d-38.71509059999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcad33685141%3A0xec794b3f20b8b973!2sLamadrid%20%26%20Hip%C3%B3lito%20Yrigoyen%2C%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716305959709!5m2!1ses-419!2sar"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
           </div>
         </div>
         <Link to="/Comander" className="buttonComander">

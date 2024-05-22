@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sono&display=swap');/*details*/
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sono&display=swap"); /*details*/
 /* font-family: 'Bebas Neue', cursive;
 font-family: 'Sono', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya&display=swap');/*titles*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya&display=swap"); /*titles*/
 /*font-family: 'Noto Serif Oriya', serif;*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 /* font-family: 'Montserrat', sans-serif; */
 
 .App {
   background-image: url("./Components/assets/FondoCuero.jpg");
   text-align: center;
-
+  min-height: 100dvh;
   background-position: center;
 }
 
@@ -22,12 +22,10 @@ font-family: 'Sono', sans-serif; */
     animation: App-logo-spin infinite 20s linear;
   }
   .App {
-
     /* background-size: cover;  */
-     background-position: unset;
+    background-position: unset;
   }
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -40,7 +38,6 @@ font-family: 'Sono', sans-serif; */
   color: white;
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -48,7 +45,4 @@ font-family: 'Sono', sans-serif; */
   to {
     transform: rotate(360deg);
   }
-  
-  
 }
-

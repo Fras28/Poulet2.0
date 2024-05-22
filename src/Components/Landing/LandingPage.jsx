@@ -23,7 +23,7 @@ export default function LandingPage(url) {
       <div className="naviLanding titCasa ">
         <div className="logoL">
           <NavLink to={`/${id}`}>
-            <img     src={Logo} alt="" width="250px" />
+            <img        src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="" width="150px" style={{backgroundColor:"white", borderRadius:"50%"}} />
           </NavLink>
         </div>
         <div className="navi2">

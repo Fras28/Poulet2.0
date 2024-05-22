@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden; /* Añade esta propiedad */
+  min-height: 100dvh
 }
 .LandingStartContainer {
   height: 50%;
@@ -101,11 +102,9 @@
   align-items: center;
 }
 .btnEnter2 {
-  margin-bottom: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
   align-items: center;
 }
 
@@ -196,7 +195,7 @@
 }
 .titleSectionStart{
   font-size: 1rem;
-  color: orange;
+  color: black;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   border-bottom: 3px solid white ;
@@ -204,11 +203,9 @@
   padding: .5rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-image: url(../assets/bgNav.png);
+  background-image: url(../assets/BackNav.jpeg);
 }
 @media (max-width: 600px) {
-
-
   .buttonComander {
     visibility: hidden;
     display: none;
@@ -234,4 +231,11 @@
   .contAlerStart {
     padding-top: 2rem;
   }
+  .IFrame{
+  border: 0;
+  width: "500px";
+  margin: auto;
+  outline: solid red 2px;
+  }
+ 
 }

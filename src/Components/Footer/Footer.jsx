@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Footer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncComercio } from "../redux/slice";
-
+import instagram from "../assets/Instagram.webp"
 export const Foot = () => {
  
   const { comercio } = useSelector((state) => state.alldata);
@@ -31,23 +31,10 @@ export const Foot = () => {
         </a> */}
 
 
-        <a className="links" href={comercio?.attributes?.instagram} target="_blank">
+<a className="links" href={comercio?.attributes?.instagram} target="_blank">
+<img src={instagram} alt="" />
+</a>
 
-          <svg
-            className="linkC"
-            width="44"
-            height="44"
-            viewBox="0 0 44 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="redes"
-              d="M13 0C5.83 0 0 5.83 0 13V31C0 38.17 5.83 44 13 44H31C38.17 44 44 38.17 44 31V13C44 5.83 38.17 0 31 0H13ZM34 8C35.1 8 36 8.9 36 10C36 11.1 35.1 12 34 12C32.9 12 32 11.1 32 10C32 8.9 32.9 8 34 8ZM22 11C28.07 11 33 15.93 33 22C33 28.07 28.07 33 22 33C15.93 33 11 28.07 11 22C11 15.93 15.93 11 22 11ZM22 13C17.04 13 13 17.04 13 22C13 26.96 17.04 31 22 31C26.96 31 31 26.96 31 22C31 17.04 26.96 13 22 13Z"
-              fill="#EDB810"
-            />
-          </svg>
-        </a>
       </div>
     </footer>
   );
