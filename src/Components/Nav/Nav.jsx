@@ -57,7 +57,7 @@ const Nav = (id) => {
             />
           </NavLink>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap:".5rem", justifyContent:"center" }}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent:"center" }}>
   
           <a
             className="links"
