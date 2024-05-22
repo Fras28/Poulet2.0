@@ -51,7 +51,7 @@ export default function LandingPage(url) {
 
       <div className="conteinerLB2  ">
         <div className="rowsCardL">
-          {categorias?.slice(0,6).map((categoria, index) => (
+          {categorias?.map((categoria, index) => (
             <NavLink
               className={`navLink `}
               to={
