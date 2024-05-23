@@ -208,6 +208,9 @@ export const asyncProductComander= () => {
   };
 };
 
+
+
+
 const extraerArticulos = (data) => {
   // Verificar si existen atributos y categorías
   if (!data || !data.attributes || !data.attributes.categorias || !data.attributes.categorias.data) {
@@ -446,6 +449,33 @@ export const asyncEditProd = (data, id) => {
         dispatch(asyncAllProducts());
       }
       toast.success("Producto editado correctamente!");
+
+    } catch (error) {
+      console.error("Error fetching data EditProd Slice:", error);
+    }
+  };
+};
+
+export const asyncPublishArtic = (data, id) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
+
+    try {
+      const response = await axios.put(`${API_GENERAL}/api/articulos/${id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+      console.log(response);
+
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllProducts());
+      }
+      toast.success("Producto despubli");
 
     } catch (error) {
       console.error("Error fetching data EditProd Slice:", error);
