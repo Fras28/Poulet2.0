@@ -9,6 +9,7 @@ import LoginComponent from "./LogIn/LogIn";
 import { asyncProductComander, asyncSubCategoria} from "../redux/slice";
 import PdfGeneratos from "./PDF/pdf";
 import QRCodeGenerator from "./QrGen/QrGeneratos";
+import "./AdminPanel.css"
 
 
 
@@ -24,7 +25,7 @@ export const AdminPanel = () => {
     <>
       {usuarioComander?
         <div>
-          <div style={{padding:"1rem",display:"flex", justifyContent:"center" ,gap:"1rem"}}>
+          <div className="admCont">
           <button className="buttonDash" onClick={() => setPanel("General")}>General</button>
           <button className="buttonDash" onClick={() => setPanel("Estadisticas")}>Estadisticas</button>
           <button className="buttonDash" onClick={() => setPanel("Otros")}>Otros</button>

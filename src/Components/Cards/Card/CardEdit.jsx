@@ -66,12 +66,14 @@ export const CardEdite = ({ producto }) => {
 
   return (
     <div className="contCardEdit">
-      <div className="cardContentEdit">
+      <div style={{display:"flex", flexDirection:"column", overflow:"hidden",width:"100%"}}>
         <p className="nameProdEdit">{product.name}</p>
+<div style={{display:"flex"}}>
+      <div className="cardContentEdit">
         <p className="priceEdit">${product.price}</p>
-        <p className="currentDate">{`Fecha actual: ${currentDate}`}</p>
       </div>
-      <div className="divBtnProd">
+      <div style={{display:"flex", alignItems:"center"}}>
+      <div className="divEditProd">
         <ModalGen
           txtBtn={editLogo}
           Child={<EditProduct product={product} id={producto.id} />}
@@ -85,6 +87,9 @@ export const CardEdite = ({ producto }) => {
           </div>
         </label>
       </div>
+      </div>
+      </div>
+</div>
     </div>
   );
 };

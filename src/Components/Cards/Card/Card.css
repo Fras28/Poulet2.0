@@ -160,10 +160,12 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+  
 }
 
 .cardContentEdit {
   flex-grow: 1;
+
 }
 
 .nameProdEdit {
