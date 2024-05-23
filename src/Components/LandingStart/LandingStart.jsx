@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import morton from "../assets/dog face.png"
 import Carousel from "../assets/Carousel/Carousel";
 import Morton from "../assets/PlaceHolder.jpg";
+import Stella from "../assets/stellaArtois.png"
+import CasDoCafe from "../assets/CasaDoCafe.png"
 const API = process.env.REACT_APP_API_STRAPI;
 export const Inicio = (url) => {
   const dispatch = useDispatch();
@@ -36,7 +38,8 @@ export const Inicio = (url) => {
     console.log(url.location.pathname);
   }
 
-  const Logos = [Morton, Morton, Morton, Morton, Morton, Morton, Morton];
+  
+  const Logos = [Stella, CasDoCafe, Morton, Morton, Morton, Morton, Morton];
 
   return (
     <div
@@ -68,7 +71,7 @@ export const Inicio = (url) => {
               maxWidth: "80%",
               margin: "auto",
               paddingTop: "2rem",
-              height: "150px",
+              height: "200px",
             }}
           />
           {comercio?.attributes?.presentacion != null ? (
@@ -84,7 +87,7 @@ export const Inicio = (url) => {
             </button>
           </div>
 
-          <Carousel logos={Logos} maxWidth="100%" />
+          <Carousel logos={Logos} maxWidth="80%" />
 
           <div className="btnEnter2">
           <iframe
