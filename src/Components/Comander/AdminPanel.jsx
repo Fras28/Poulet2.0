@@ -28,7 +28,8 @@ export const AdminPanel = () => {
           <div className="admCont">
             <img    src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt=""  className="logoCel"/>
           <button className="generic buttonDash AdminBtns" onClick={() => setPanel("General")}>General</button>
-          <button className="generic buttonDash AdminBtns" onClick={() => setPanel("Estadisticas")}>Estadisticas</button>
+          <button className="generic buttonDash AdminBtns" /*onClick={() => setPanel("Estadisticas")}*/
+          >Estadisticas</button>
       
           <ModalGen Child={<Editer />} txtBtn="Edit Cat/SubCat"  />
           <ModalGen Child={<Editer />} txtBtn="Editar Producto"  />

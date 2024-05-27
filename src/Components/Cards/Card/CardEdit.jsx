@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { asyncCancelFav, asyncfavProducts, asyncPublishArtic } from "../../redux/slice";
+import {
+  asyncCancelFav,
+  asyncfavProducts,
+  asyncPublishArtic,
+} from "../../redux/slice";
 import "./Card.css";
 import ModalGen from "../../Modal/ModalConfirmacion/Modal";
 import EditProduct from "../../Comander/formVenta/formEditProd";
+import ModalEdit from "../../Modal/ModalConfirmacion/ModalEdit";
 
 export const CardEdite = ({ producto }) => {
   const dispatch = useDispatch();
@@ -57,7 +62,7 @@ export const CardEdite = ({ producto }) => {
       : { data: { publishedAt: currentDate } };
 
     try {
-      await dispatch(asyncPublishArtic(action,producto.id));
+      await dispatch(asyncPublishArtic(action, producto.id));
       setIsPublished(!isPublished);
     } catch (error) {
       console.error("Error publishing/unpublishing the article:", error);
@@ -66,30 +71,41 @@ export const CardEdite = ({ producto }) => {
 
   return (
     <div className="contCardEdit">
-      <div style={{display:"flex", flexDirection:"column", overflow:"hidden",width:"100%"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
         <p className="nameProdEdit">{product.name}</p>
-<div style={{display:"flex"}}>
-      <div className="cardContentEdit">
-        <p className="priceEdit">${product.price}</p>
-      </div>
-      <div style={{display:"flex", alignItems:"center"}}>
-      <div className="divEditProd">
-        <ModalGen
-          txtBtn={editLogo}
-          Child={<EditProduct product={product} id={producto.id} />}
-        />
-      </div>
-      <div className="toggleContainer">
-        <label className="toggle-switch">
-          <input type="checkbox" checked={isPublished} onChange={handleToggle} />
-          <div className="toggle-switch-background">
-            <div className="toggle-switch-handle"></div>
+            <p className="priceEdit">${product.price}</p>
+        <div >
+          <div className="cardContentEdit">
           </div>
-        </label>
+          <div style={{ display: "flex", alignItems: "center", justifyContent:"space-around" }}>
+            <div className="divEditProd">
+              <ModalEdit
+                txtBtn={editLogo}
+                Child={<EditProduct product={product} id={producto.id} />}
+              />
+            </div>
+            <div className="toggleContainer">
+              <label className="toggle-switch">
+                <input
+                  type="checkbox"
+                  checked={isPublished}
+                  onChange={handleToggle}
+                />
+                <div className="toggle-switch-background">
+                  <div className="toggle-switch-handle"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-</div>
     </div>
   );
 };

@@ -45,11 +45,20 @@ const LogIn = ({ onLoginSuccess }) => {
   };
 
   const handleLogin = async () => {
-    const success = await dispatch(asyncLogIn(credentials));
-    if (success) {
-      setOpen(false);
+    try {
+      const success = await dispatch(asyncLogIn(credentials));
+      if (success) {
+        setOpen(false);
+      } else {
+        // Manejar el caso de inicio de sesión fallido si es necesario
+        console.log('Login failed');
+      }
+    } catch (error) {
+      // Manejar el error adecuadamente
+      console.error('An error occurred during login:', error);
     }
   };
+  
 
   return (
     <div className="btnNav">
@@ -61,7 +70,7 @@ const LogIn = ({ onLoginSuccess }) => {
       >
         <DialogTitle className="infoNavi">
           <div>
-            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="100px" />
+            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo" width="100px" />
           </div>
         </DialogTitle>
         <DialogContent>
