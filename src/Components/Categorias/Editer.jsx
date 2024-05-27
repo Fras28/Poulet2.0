@@ -40,7 +40,7 @@ export const Editer = () => {
 
   return (
     <div className="containerEdit">
-      <div>
+        <div className="searchBar">
         <label htmlFor="">Buscar</label>
         <input
           type="search"
@@ -49,9 +49,10 @@ export const Editer = () => {
           value={searchValue}
           onChange={handleSearchChange}
           placeholder="Buscar producto..."
-          className="searchBar"
         />
-        <h2>Edicion de productos</h2>
+        </div>
+      <div>
+        <h2 style={{paddingTop:"2.5rem"}}>Edicion de productos</h2>
         <ModalGen Child={<AddProduct />} txtBtn="+ Producto" />
         <CardsEdite products={filteredProducts} />
       </div>

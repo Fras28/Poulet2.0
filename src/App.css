@@ -12,7 +12,6 @@ font-family: 'Sono', sans-serif; */
   min-height: 100dvh;
   background-position: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -40,6 +39,14 @@ font-family: 'Sono', sans-serif; */
   color: white;
 }
 
+.searchBar{
+  position: fixed;
+  margin-top: -50px;
+}
+.searchBar > label{
+  color: white;
+  font-weight: 600;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
