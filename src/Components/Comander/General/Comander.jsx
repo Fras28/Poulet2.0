@@ -36,7 +36,7 @@ const ComandasComponent = () => {
     if (usuarioComander) {
       obtenerComandasYProv();
     }
-  }, [usuarioComander, dispatch,comandasTrue, comandasFalse, getProvEjecutado]);
+  }, [usuarioComander,comandasTrue, comandasFalse, getProvEjecutado]);
 
   return (
     <div className="comandas-container">

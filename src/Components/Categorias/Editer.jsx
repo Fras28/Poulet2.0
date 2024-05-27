@@ -20,10 +20,10 @@ export const Editer = () => {
   // Efecto secundario para actualizar filteredProducts cuando allProduct cambie
   useEffect(() => {
     setFilteredProducts(allProduct);
-  }, [allProduct]);
+  }, []);
 
   const handleSearchChange = (e) => {
-    const value = e.target.value;
+    const value = e?.target?.value;
     setSearchValue(value);
 
     // Si el valor de búsqueda está vacío, enviar directamente allProduct
@@ -32,7 +32,7 @@ export const Editer = () => {
     } else {
       // Filtrar los productos basados en el valor de búsqueda
       const filtered = allProduct.filter(product =>
-        product.attributes.name.toLowerCase().includes(value.toLowerCase())
+        product?.attributes?.name?.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredProducts(filtered);
     }

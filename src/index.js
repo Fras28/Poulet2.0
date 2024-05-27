@@ -5,18 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import  store  from "./Components/redux/store";
+import store from "./Components/redux/store";
 import axios from "axios";
+import Modal from "react-modal"; // Importa react-modal
 
+// Establecer el elemento de la aplicación para react-modal
+Modal.setAppElement('#root');
 
-// axios.defaults.baseURL = "https://ecommerce-demo.onrender.com";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

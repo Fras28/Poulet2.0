@@ -6,7 +6,7 @@ import Spinner from "../../assets/Spinner/Spinner";
 
 const AddProduct = ({ product}) => {
   const dispatch = useDispatch();
-
+const {allProducts} = useSelector((state)=> state.alldata)
   useEffect(() => {
     dispatch(asyncAllSubCategoria());
   }, []);

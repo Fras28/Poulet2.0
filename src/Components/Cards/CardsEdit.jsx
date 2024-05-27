@@ -8,8 +8,8 @@ export const CardsEdite = ({ products }) => {
   return (
     <div className="cartaEdit" >
       <div className="rowsCardEdit">
-        {products?.map((e) => (
-          <CardEdite producto={e} />
+        {products?.map((e, index) => (
+          <CardEdite key={index} producto={e} />
         ))}
       </div>
     </div>

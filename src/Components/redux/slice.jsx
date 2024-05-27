@@ -275,7 +275,7 @@ export const asyncAllSubCategoria = () => {
         }))
       );
 
-      console.log("cargando subCategorias", subCategorias);
+      console.log("cargando subCategorias");
 
       return dispatch(allSubCategorias(subCategorias));
     } catch (error) {
