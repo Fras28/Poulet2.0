@@ -183,3 +183,4 @@ select::placeholder {
 .inputOrbitron:focus + .placeholder {
   opacity: 0; /* oculta el placeholder cuando el input está enfocado */
 }
+

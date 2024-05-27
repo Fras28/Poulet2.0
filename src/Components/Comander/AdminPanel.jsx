@@ -9,6 +9,7 @@ import { asyncAllProducts, asyncAllSubCategoria } from "../redux/slice";
 import PdfGeneratos from "./PDF/pdf";
 import QRCodeGenerator from "./QrGen/QrGeneratos";
 import "./AdminPanel.css";
+import { EditerSub } from "../Categorias/EditerSub";
 
 const API = process.env.REACT_APP_API_STRAPI;
 
@@ -59,7 +60,7 @@ export const AdminPanel = () => {
               {isDropdownOpen && (
                 <div className="dropdown-content">
                   <ModalGen Child={<Editer />} txtBtn="Edit Articulos" />
-                  <ModalGen Child={<Editer />} txtBtn="Editar Sub Categorias" />
+                  <ModalGen Child={<EditerSub />} txtBtn="Editar Sub Categorias" />
                   <ModalGen Child={<Editer />} txtBtn="Editar Categorias" />
                 </div>
               )}

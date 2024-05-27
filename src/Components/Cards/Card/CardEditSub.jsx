@@ -4,27 +4,28 @@ import {
   asyncCancelFav,
   asyncfavProducts,
   asyncPublishArtic,
+  asyncPublishSubCat,
 } from "../../redux/slice";
 import "./Card.css";
 import ModalGen from "../../Modal/ModalConfirmacion/Modal";
 import EditProduct from "../../Comander/formVenta/formEditProd";
 import ModalEdit from "../../Modal/ModalConfirmacion/ModalEdit";
+import EditSub from "../../Comander/formVenta/formEditSub";
 
-export const CardEdite = ({ producto }) => {
+export const CardEditeSub = ({ producto }) => {
   const dispatch = useDispatch();
   const [articles, setArticles] = useState({
     name: [],
     price: [],
   });
 
-  const product = producto.attributes;
-  const [isPublished, setIsPublished] = useState(product.publishedAt !== null);
+  const [isPublished, setIsPublished] = useState(producto.publishedAt !== null);
   const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
-    setIsPublished(product.publishedAt !== null);
+    setIsPublished(producto.publishedAt !== null);
     setCurrentDate(getCurrentTimestamp());
-  }, [product.publishedAt]);
+  }, [producto.publishedAt]);
 
   const getCurrentTimestamp = () => {
     return new Date().toISOString();
@@ -62,7 +63,7 @@ export const CardEdite = ({ producto }) => {
       : { data: { publishedAt: currentDate } };
 
     try {
-      await dispatch(asyncPublishArtic(action, producto.id));
+      await dispatch(asyncPublishSubCat(action, producto.id));
       setIsPublished(!isPublished);
     } catch (error) {
       console.error("Error publishing/unpublishing the article:", error);
@@ -79,8 +80,7 @@ export const CardEdite = ({ producto }) => {
           width: "100%",
         }}
       >
-        <p className="nameProdEdit">{product.name}</p>
-            <p className="priceEdit">${product?.price}</p>
+        <p className="nameProdEdit">{producto.name}</p>
         <div >
           <div className="cardContentEdit">
           </div>
@@ -88,7 +88,7 @@ export const CardEdite = ({ producto }) => {
             <div className="divEditProd">
               <ModalEdit
                 txtBtn={editLogo}
-                Child={<EditProduct product={product} id={producto.id} />}
+                Child={<EditSub product={producto}  />}
               />
             </div>
             <div className="toggleContainer">

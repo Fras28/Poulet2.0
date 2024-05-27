@@ -114,6 +114,9 @@ max-height: 100vh;
   display: flex;
   align-items: center;
   font-weight: 400;
+}
+
+.labelLogIn{
   color: aliceblue;
 }
 

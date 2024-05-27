@@ -44,7 +44,9 @@ background-image: url(../assets/BackNav.jpeg);
     font-size: 1rem
 }
 
-
+.labelLogIn{
+  color: aliceblue;
+}
 
 
 /* Estilos generales de la ventana modal */

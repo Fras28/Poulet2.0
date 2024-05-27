@@ -85,7 +85,7 @@ const EditProduct = ({ product, id }) => {
       <h2>Editar Producto</h2>
  
       <div className="form-group">
-        <label htmlFor="name">Nombre del Producto: id {id}</label>
+        <label className="labelform" htmlFor="name">Nombre del Producto: id {id}</label>
         <input
           type="text"
           id="name"
@@ -96,7 +96,7 @@ const EditProduct = ({ product, id }) => {
       </div>
       <div className="form-group" style={{ display: "flex" }}>
         <div>
-          <label htmlFor="txtPrecio1">TextPrecio:</label>
+          <label className="labelform" htmlFor="txtPrecio1">TextPrecio:</label>
           <input
             type="text"
             id="txtPrecio1"
@@ -106,7 +106,7 @@ const EditProduct = ({ product, id }) => {
           />
         </div>
         <div>
-          <label htmlFor="price">Precio:</label>
+          <label className="labelform" htmlFor="price">Precio:</label>
           <input
             type="number"
             id="price"
@@ -116,9 +116,9 @@ const EditProduct = ({ product, id }) => {
           />
         </div>
       </div>
-      <div className="form-group" style={{ display: "flex" }}>
+      <div  className="form-group" style={{ display: "flex" }}>
         <div>
-          <label htmlFor="txtPrecio2">TextPrecio2:</label>
+          <label className="labelform" htmlFor="txtPrecio2">TextPrecio2:</label>
           <input
             type="text"
             id="txtPrecio2"
@@ -128,7 +128,7 @@ const EditProduct = ({ product, id }) => {
           />
         </div>
         <div>
-          <label htmlFor="price2">Precio2:</label>
+          <label className="labelform" htmlFor="price2">Precio2:</label>
           <input
             type="number"
             id="price2"
@@ -140,7 +140,7 @@ const EditProduct = ({ product, id }) => {
       </div>
       <div className="form-group" style={{ display: "flex" }}>
         <div>
-          <label htmlFor="txtPrecio3">TextPrecio3:</label>
+          <label className="labelform" htmlFor="txtPrecio3">TextPrecio3:</label>
           <input
             type="text"
             id="txtPrecio3"
@@ -150,7 +150,7 @@ const EditProduct = ({ product, id }) => {
           />
         </div>
         <div>
-          <label htmlFor="price3">Precio3:</label>
+          <label className="labelform" htmlFor="price3">Precio3:</label>
           <input
             type="number"
             id="price3"
@@ -161,7 +161,7 @@ const EditProduct = ({ product, id }) => {
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="detail">Detalle:</label>
+        <label className="labelform" htmlFor="detail">Detalle:</label>
         <textarea
           type="text"
           id="detail"

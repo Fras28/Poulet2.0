@@ -78,7 +78,7 @@ const LoginComponent = ({ onLoginSuccess }) => {
             <h2 className="login-heading">Log In</h2>
             <form className='formLogIn'>
               <div className="form-group">
-                <label htmlFor="email">Email:</label>
+                <label style={{color:"white"}}  htmlFor="email">Email:</label>
                 <input
                   type="text"
                   id="email"
@@ -90,7 +90,7 @@ const LoginComponent = ({ onLoginSuccess }) => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password:      
+                <label style={{color:"white"}}  htmlFor="password">Password:      
                   <button
                     type="button"
                     onClick={toggleShowPassword}
