@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CardsEdite } from "../Cards/CardsEdit.jsx";
 import { asyncAllProducts } from "../redux/slice.jsx";
+import ModalGen from "../Modal/ModalConfirmacion/Modal.jsx";
+import AddProduct from "../Comander/formVenta/formAddProd.jsx";
 
 export const Editer = () => {
   const dispatch = useDispatch();
@@ -50,6 +52,7 @@ export const Editer = () => {
           className="searchBar"
         />
         <h2>Edicion de productos</h2>
+        <ModalGen Child={<AddProduct />} txtBtn="+ Producto" />
         <CardsEdite products={filteredProducts} />
       </div>
     </div>

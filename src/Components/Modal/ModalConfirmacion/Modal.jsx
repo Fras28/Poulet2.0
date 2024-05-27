@@ -28,9 +28,9 @@ export default function ModalGen({ Child, txtBtn }) {
   };
 
   return (
-    <div>
-      <div>
-        <button onClick={handleClickOpen} className="generic buttonDash" disabled={loading}>
+    <div style={{width:"100%"}}>
+      <div >
+        <button onClick={handleClickOpen} className="generic buttonDash AdminBtns" disabled={loading}>
           {txtBtn ? txtBtn : "+ Proveedor"}
         </button>
       </div>

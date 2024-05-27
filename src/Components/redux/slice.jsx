@@ -173,7 +173,7 @@ const API_COMANDER_ART = process.env.REACT_APP_API_ARTICULOS_CATEGORIAS
 
 
 
-const comercio = 3;
+const comercio = 10;
 
 
 
@@ -258,7 +258,31 @@ export const asyncCategorias = () => {
     }
   };
 };
+export const asyncAllSubCategoria = () => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(API_SUBCAT);
 
+      const categorias = response.data?.data?.attributes?.categorias?.data;
+      if (!categorias) {
+        throw new Error("No categories found in the response");
+      }
+
+      const subCategorias = categorias?.flatMap(categoria => 
+        categoria?.attributes?.sub_categorias?.data.map(subCategoria => ({
+          id: subCategoria.id,
+          name: subCategoria?.attributes?.name
+        }))
+      );
+
+      console.log("cargando subCategorias", subCategorias);
+
+      return dispatch(allSubCategorias(subCategorias));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+};
 
 
 export const asyncSubCategoria = (id) => {
@@ -427,7 +451,31 @@ export const asyncLogIn = ({email,password}) => {
 };
 
 
+export const asyncAddProd = (data) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
 
+    try {
+      const response = await axios.post(`${API_GENERAL}/api/articulos`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+      toast.success("Producto agregado correctamente!");
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllProducts());
+      }
+      toast.success("Producto Agregado correctamente!");
+
+    } catch (error) {
+      console.error("Error fetching data EditProd Slice:", error);
+    }
+  };
+};
 
 export const asyncEditProd = (data, id) => {
   return async function (dispatch, getState) {
@@ -442,7 +490,6 @@ export const asyncEditProd = (data, id) => {
         },
       });
       console.log("producto editado creo q correctamente");
-      console.log(response);
 
       // Si asyncAllProducts es una acción de thunk, despacharla
       if (typeof asyncAllProducts === 'function') {
@@ -455,6 +502,7 @@ export const asyncEditProd = (data, id) => {
     }
   };
 };
+
 
 export const asyncPublishArtic = (data, id) => {
   return async function (dispatch, getState) {

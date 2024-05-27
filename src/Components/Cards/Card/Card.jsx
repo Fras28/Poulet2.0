@@ -44,9 +44,9 @@ export const Card = ({ producto }) => {
     
         {product.price2?
         <div style={{display:"flex", gap:"1.5rem", marginTop:".5rem"}}>
-        <p className="price"> <b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 5px"}}>C</b>  - ${product.price}</p>
-        {product.price2?<p className="price"><b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 3px"}}>M</b> - ${product.price2}</p>:null}
-       {product.price3 ?<p className="price"><b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 5px"}}>G</b> - ${product.price3}</p>:null}
+        <p className="price"> <b style={{fontSize:"12px" , borderRadius:"50%", whiteSpace:"nowrap"}}>{product.txtPrecio1}</b>  ${product.price}</p>
+        {product.price2?<p className="price"><b style={{fontSize:"12px" , borderRadius:"50%", padding:"1px 3px"}}>{product.txtPrecio2}</b> ${product.price2}</p>:null}
+       {product.price3 ?<p className="price"><b style={{fontSize:"12px" , borderRadius:"50%", whiteSpace:"nowrap"}}>{product.txtPrecio3}</b>  ${product.price3}</p>:null}
         </div>: <p className="price">${product.price}</p>}
       </div>
       <div className="rightInfo">
