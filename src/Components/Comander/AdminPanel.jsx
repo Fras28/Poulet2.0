@@ -61,7 +61,7 @@ export const AdminPanel = () => {
                 <div className="dropdown-content">
                   <ModalGen Child={<Editer />} txtBtn="Edit Articulos" />
                   <ModalGen Child={<EditerSub />} txtBtn="Editar Sub Categorias" />
-                  <ModalGen Child={<Editer />} txtBtn="Editar Categorias" />
+                  {/* <ModalGen Child={<Editer />} txtBtn="Editar Categorias" /> */}
                 </div>
               )}
             </div>

@@ -557,9 +557,9 @@ export const asyncPublishSubCat = (data, id) => {
 
       // Si asyncAllProducts es una acción de thunk, despacharla
       if (typeof asyncAllProducts === 'function') {
-        dispatch(asyncAllProducts());
+        dispatch(asyncAllSubCategoria());
       }
-      toast.success("Producto despubli");
+      toast.success("Sub categoria Modificada");
 
     } catch (error) {
       console.error("Error fetching data EditProd Slice:", error);
