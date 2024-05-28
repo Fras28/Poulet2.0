@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png"
+
 import "./BtnNavidad.css";
 import { useSelector } from "react-redux";
 const API = process.env.REACT_APP_API_STRAPI;

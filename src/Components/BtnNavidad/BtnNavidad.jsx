@@ -7,7 +7,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import "./BtnNavidad.css";
 import { useSelector } from "react-redux";
-import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png";
 const API = process.env.REACT_APP_API_STRAPI;
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

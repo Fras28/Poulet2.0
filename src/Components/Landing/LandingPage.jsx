@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png"
+
 import { NavLink } from "react-router-dom";
 import "./LandingPage.css";
 import { VerPedido } from "../BtnBag/BtnBag";

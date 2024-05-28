@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from "../ElMundoParrilla-removebg-preview (2).png"
 import './Spinner.css'; // Asegúrate de ajustar la ruta correcta
 import { useSelector } from 'react-redux';
 const API = process.env.REACT_APP_API_STRAPI;

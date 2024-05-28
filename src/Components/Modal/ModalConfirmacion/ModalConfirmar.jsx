@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Logo from "../../assets/ElMundoParrilla-removebg-preview (2).png"
+
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -120,7 +120,7 @@ export default function ModalConfirm({ total }) {
       >
         <DialogTitle className="infoNavi">
           <div>
-            <img src={Logo} alt="logo" width="100px" />
+            <img   src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo" width="100px" />
           </div>
           <div style={{ marginLeft: "30%" }}>
             <button className="exit" onClick={handleClose}>
@@ -130,9 +130,11 @@ export default function ModalConfirm({ total }) {
         </DialogTitle>
         <DialogContent>
           <div id="alert-dialog-slide-description">
-            Genial, estas a un paso de finalizar tu pedido.
+          <b>Genial !!
+            <br/> estas a un paso de finalizar tu pedido.
             <br />
             Ayúdanos a tener una mejor atención:
+            </b> 
             <form className="formPedido">
               <div className="boxPedido">
                 <label htmlFor="telefono">Teléfono:</label>
@@ -272,7 +274,7 @@ export default function ModalConfirm({ total }) {
                   <ul style={{ color: "red", marginTop: "10px" }}>
                     {!(order.name.length > 3) && (
                       <li className="liError">
-                        Ingrese un name válido (más de 3 caracteres).
+                        Ingrese un nombre válido (más de 3 caracteres).
                       </li>
                     )}
                     {!(
@@ -281,8 +283,8 @@ export default function ModalConfirm({ total }) {
                         order?.domicilio?.length > 7)
                     ) && (
                       <li className="liError">
-                        Seleccione una opción válida para el tipo de pedido y,
-                        si es Delivery, ingrese una dirección válida.
+                        Seleccione una opción válida para el tipo de pedido ,y
+                        si es Delivery ingrese una dirección válida.
                       </li>
                     )}
                     {!order.metodo_de_pago && (

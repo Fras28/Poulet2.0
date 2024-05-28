@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../assets/ElMundoParrilla-removebg-preview (2).png"
 import { Link, NavLink, useHistory, useRouteMatch } from "react-router-dom";
 import "./Nav.css";
 import { useSelector } from "react-redux";
