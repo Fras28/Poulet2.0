@@ -10,6 +10,7 @@ import PdfGeneratos from "./PDF/pdf";
 import QRCodeGenerator from "./QrGen/QrGeneratos";
 import "./AdminPanel.css";
 import { EditerSub } from "../Categorias/EditerSub";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const API = process.env.REACT_APP_API_STRAPI;
 
@@ -33,11 +34,13 @@ export const AdminPanel = () => {
       {usuarioComander ? (
         <div>
           <div className="admCont">
+          <NavLink to={`/`}>
             <img
               src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
               alt=""
               className="logoCel"
             />
+          </NavLink>
             <button
               className="generic buttonDash AdminBtns"
               onClick={() => setPanel("General")}

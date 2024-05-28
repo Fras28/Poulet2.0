@@ -17,7 +17,7 @@ h1 {
   z-index: 9999;
   justify-content: space-between;
   border-bottom: 1px solid orange;
-  background-image: url("../assets/BackNav.jpeg");
+  background-image: url("../assets/bgNav.png");
   min-height: 100px;
 }
 

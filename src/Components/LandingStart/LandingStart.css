@@ -14,7 +14,7 @@
   max-width: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .contAlerStart {
@@ -195,7 +195,7 @@
 }
 .titleSectionStart{
   font-size: 1rem;
-  color: black;
+  color: orange;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   border-bottom: 3px solid white ;
@@ -203,7 +203,7 @@
   padding: .5rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-image: url(../assets/BackNav.jpeg);
+  background-image: url(../assets/bgNav.png);
 }
 
 
@@ -245,7 +245,8 @@
   border: 0;
   width: "500px";
   margin: auto;
-  outline: solid red 2px;
+  outline: solid orange 2px;
+  border-radius: 8px;
   }
  
 }

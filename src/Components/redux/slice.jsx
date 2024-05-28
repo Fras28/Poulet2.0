@@ -182,7 +182,7 @@ export const asyncAllProducts= () => {
   return async function (dispatch) {
     try {
       console.log("ejecutando async PRODUCTS");
-      const response = await axios.get(`${API_BASE}${comercio}?populate=categorias.sub_categorias.articulos`);
+      const response = await axios.get(`${API_BASE}?populate=categorias.sub_categorias.articulos`);
 
       const articulosExtraidos = extraerArticulos(response.data.data);
 
@@ -250,7 +250,7 @@ export const asyncCategorias = () => {
   return async function (dispatch) {
     try {
       const response = await axios.get(API_CATEGORIAS);
-      const categoriasFiltradas = response.data.data.filter(categoria => categoria.attributes.comercio.data.id === comercio); // Filtrar las categorías cuyo comercio tenga el id igual al valor de la constante comercio
+      const categoriasFiltradas = response.data.data
       const categoriasOrdenadas = categoriasFiltradas.sort((a, b) => a.id - b.id); // Ordenar las categorías filtradas
       return dispatch(allCategorias(categoriasOrdenadas));
     } catch (error) {
@@ -307,7 +307,7 @@ export const asyncSubCategoria = (id) => {
 export const asyncfavProducts = (pedido) => {
   return async function (dispatch) {
     try {
-      toast.success("Product removed from Agregado successfully!");
+      toast.success("Product agregado!");
       return dispatch(favProducts(pedido));
     } catch (error) {
       console.error("Error removing product from favorites:", error);
@@ -323,7 +323,7 @@ export const asyncCancelFav = (pedido) => {
       dispatch(cancelBagProducts(pedido.attributes.name));
 
       // Show success notification
-      toast.success("Product removed from favorites successfully!");
+      toast.success("Producto eliminado de pedido");
     } catch (error) {
       console.error("Error removing product from favorites:", error);
       // Show error notification

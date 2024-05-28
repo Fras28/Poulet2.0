@@ -64,6 +64,7 @@ export const Inicio = (url) => {
           </p>
         </div>
         <div className="BottomLanding">
+      
           <img
             src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
             alt=""
@@ -87,12 +88,13 @@ export const Inicio = (url) => {
             </button>
           </div>
 
-          <Carousel logos={Logos} maxWidth="80%" />
+          {/* <Carousel logos={Logos} maxWidth="80%" /> */}
 
           <div className="btnEnter2">
+            <b style={{marginBottom:"2px"}}>{comercio?.attributes?.direccion}</b>
           <iframe
-          className="IFrame"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.118398361054!2d-62.26270920000004!3d-38.71509059999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcad33685141%3A0xec794b3f20b8b973!2sLamadrid%20%26%20Hip%C3%B3lito%20Yrigoyen%2C%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716305959709!5m2!1ses-419!2sar"
+            className="IFrame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.1707835738916!2d-62.239068!3d-38.73684300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95eda31f7de95949%3A0x2ac651f8f50efc9a!2sCaseros%202306%2C%20B8000%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716907208491!5m2!1ses-419!2sar"
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

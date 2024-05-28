@@ -57,6 +57,9 @@ export const CompSubCat = ({ idCat }) => {
       .map(part => part.trim())
       .join(""); // Unir las partes filtradas en una sola cadena
   });
+
+
+  
   return (
     <div className="containerL" >
       <Nav id={id} />
