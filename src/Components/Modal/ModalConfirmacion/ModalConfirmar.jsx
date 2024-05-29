@@ -1,10 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +16,6 @@ export default function ModalConfirm({ total }) {
   const dispatch = useDispatch();
   const { comercio, favProd } = useSelector((state) => state.alldata);
   const [open, setOpen] = React.useState(false);
-
   const [statusOrder, setStatusOrder] = React.useState(1);
 
   const groupedProducts = {};
@@ -45,7 +41,12 @@ export default function ModalConfirm({ total }) {
     telefono: "291",
     domicilio: "",
   });
-
+  const whatsappMessage = Object.entries(groupedProducts)
+    .map(([productInfo, count]) => {
+      const [name, price] = productInfo.split(" - ");
+      return `${name} ($${price}) x${count},`;
+    })
+    .join(", ");
   const handleTelefonoChange = (e) => {
     setOrder({
       ...order,
@@ -68,27 +69,17 @@ export default function ModalConfirm({ total }) {
     });
   };
 
-  const whatsappMessage = Object.entries(groupedProducts)
-    .map(([productInfo, count]) => {
-      const [name, price] = productInfo.split(" - ");
-      return `${name} ($${price}) x${count},`;
-    })
-    .join(", ");
-
-  const whatsappLink = `http://wa.me/${comercio?.attributes?.whatsapp}?text=Hola ${comercio[0]?.attributes?.name} Mensaje de mi pedido ➤ ${whatsappMessage} Total = $ ${total}, ${order?.metodo_de_pago}`;
-
   const sendComanda = async (e) => {
     e.preventDefault(); // Prevenir la acción por defecto del enlace
 
     try {
       // Aquí colocas la lógica para enviar la comanda
       const response = await dispatch(asyncOrder(order));
-
       // Actualizar el estado para indicar que la orden se envió correctamente
       setStatusOrder(3);
 
-      // Redirigir al usuario a WhatsApp si la comanda se envió correctamente
-      window.open(whatsappLink, "_blank");
+      // Redireccionar automáticamente a WhatsApp
+      window.location.href = `https://wa.me/+542914464308?text=Hola ${comercio?.attributes?.name}, mi nombre es ${order.name}, este es mi pedido ➤ ${whatsappMessage} Total = $ ${total}, ${order?.metodo_de_pago}, Formato de pedido : ${order.tipo_pedido} ${order.domicilio.length >3 ? "a : " + order.domicilio :null}`;
 
       console.log("Comanda enviada correctamente:", response);
     } catch (error) {
@@ -98,7 +89,6 @@ export default function ModalConfirm({ total }) {
     }
   };
 
-  console.log(order);
   return (
     <div>
       <div>
@@ -120,7 +110,7 @@ export default function ModalConfirm({ total }) {
       >
         <DialogTitle className="infoNavi">
           <div>
-            <img   src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo" width="100px" />
+            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="100px" />
           </div>
           <div style={{ marginLeft: "30%" }}>
             <button className="exit" onClick={handleClose}>
@@ -130,11 +120,9 @@ export default function ModalConfirm({ total }) {
         </DialogTitle>
         <DialogContent>
           <div id="alert-dialog-slide-description">
-          <b>Genial !!
-            <br/> estas a un paso de finalizar tu pedido.
+            Genial, estas a un paso de finalizar tu pedido.
             <br />
             Ayúdanos a tener una mejor atención:
-            </b> 
             <form className="formPedido">
               <div className="boxPedido">
                 <label htmlFor="telefono">Teléfono:</label>
@@ -194,10 +182,10 @@ export default function ModalConfirm({ total }) {
                   value={order?.tipo_pedido}
                 >
                   <option hidden disabled defaultValue value={""}>
-                    Delivery o Take Away?
+                    Delivery o Retiro en Local?
                   </option>
                   <option>Delivery</option>
-                  <option>Take Away</option>
+                  <option>Retiro en Local</option>
                 </select>
                 <div
                   style={{
@@ -265,7 +253,7 @@ export default function ModalConfirm({ total }) {
                 {!(
                   /^\d{10}$/.test(order?.telefono) &&
                   order?.name?.length > 3 &&
-                  (order?.tipo_pedido === "Take Away" ||
+                  (order?.tipo_pedido === "Retiro en Local" ||
                     (order?.tipo_pedido === "Delivery" &&
                       order.domicilio.length > 7)) &&
                   order?.metodo_de_pago &&
@@ -274,17 +262,17 @@ export default function ModalConfirm({ total }) {
                   <ul style={{ color: "red", marginTop: "10px" }}>
                     {!(order.name.length > 3) && (
                       <li className="liError">
-                        Ingrese un nombre válido (más de 3 caracteres).
+                        Ingrese un name válido (más de 3 caracteres).
                       </li>
                     )}
                     {!(
-                      order?.tipo_pedido === "Take Away" ||
+                      order?.tipo_pedido === "Retiro en Local" ||
                       (order?.tipo_pedido === "Delivery" &&
                         order?.domicilio?.length > 7)
                     ) && (
                       <li className="liError">
-                        Seleccione una opción válida para el tipo de pedido ,y
-                        si es Delivery ingrese una dirección válida.
+                        Seleccione una opción válida para el tipo de pedido y,
+                        si es Delivery, ingrese una dirección válida.
                       </li>
                     )}
                     {!order.metodo_de_pago && (
@@ -301,7 +289,6 @@ export default function ModalConfirm({ total }) {
             </form>
           </div>
         </DialogContent>
-        <DialogActions> </DialogActions>
       </Dialog>
     </div>
   );
