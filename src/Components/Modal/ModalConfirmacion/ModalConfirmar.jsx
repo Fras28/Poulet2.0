@@ -75,7 +75,7 @@ export default function ModalConfirm({ total }) {
     })
     .join(", ");
 
-  const whatsappLink = `http://wa.me/${comercio[0]?.attributes?.whatsapp}?text=Hola ${comercio[0]?.attributes?.name} Mensaje de mi pedido ➤ ${whatsappMessage} Total = $ ${total}, ${order?.metodo_de_pago}`;
+  const whatsappLink = `http://wa.me/${comercio?.attributes?.whatsapp}?text=Hola ${comercio[0]?.attributes?.name} Mensaje de mi pedido ➤ ${whatsappMessage} Total = $ ${total}, ${order?.metodo_de_pago}`;
 
   const sendComanda = async (e) => {
     e.preventDefault(); // Prevenir la acción por defecto del enlace
