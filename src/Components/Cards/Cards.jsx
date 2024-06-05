@@ -52,7 +52,8 @@ export const Cards = ({ products }) => {
           </h2>
           <div className="rowsCard">
             {products.attributes.articulos.data.map((producto) => (
-              <Card producto={producto} />
+            producto.attributes.publishedAt !== null ?
+            <Card producto={producto} /> :null
             ))}
           </div>
         </div>

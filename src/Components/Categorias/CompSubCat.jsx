@@ -83,7 +83,6 @@ export const CompSubCat = ({ idCat }) => {
               {articulos?.map((prod) => (
                 <div >
                   <div id={prod.id} style={{height:"110px"}} ></div>
-              
                   <Cards products={prod} />
                 </div>
               ))}
