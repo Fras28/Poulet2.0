@@ -68,7 +68,7 @@ export const AdminPanel = () => {
                 </div>
               )}
             </div>
-            <ModalGen Child={<PdfGeneratos />} txtBtn="PDF Carta" />
+            {/* <ModalGen Child={<PdfGeneratos />} txtBtn="PDF Carta" /> */}
             <ModalGen Child={<QRCodeGenerator />} txtBtn="Generar QRS" />
           </div>
 
